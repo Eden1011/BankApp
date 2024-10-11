@@ -20,5 +20,6 @@ class TestCreateBankAccount(unittest.TestCase):
         pesel = 321
         pierwsze_konto = Konto(imie, nazwisko, pesel)
         self.assertEqual(pierwsze_konto.pesel, "Pesel nie jest poprawny!", "Pesel nie jest poprawny!")
+        
 
     #tutaj proszę dodawać nowe testy
