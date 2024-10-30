@@ -47,6 +47,13 @@ class Konto:
                 self.rok = "Rok nie odpowiada promocji!"
             else:
                 self.saldo = 50
+    
+    def przelew_przychodzacy(self, wartosc):
+        self.saldo += wartosc
+    
+    def przelew_wychodzacy(self, wartosc):
+        if self.saldo >= wartosc:
+            self.saldo -= wartosc
 
 
 
