@@ -1,6 +1,7 @@
 import unittest
 
-from ..Konto import Konto
+from ..KontoPrywatne import KontoPrywatne as Konto
+from ..KontoFirmowe import KontoFirmowe
 
 class TestCreateBankAccount(unittest.TestCase):
 
@@ -73,39 +74,14 @@ class TestCreateBankAccount(unittest.TestCase):
         rok_seniorka = pierwsze_konto.rok
         self.assertEqual(pierwsze_konto.saldo, 0, "Nie dodano rabatu!")
 
-class TestPrzelewBankAccount(unittest.TestCase):
+    def test_nip_konta_firmowego_nie_poprawne(self):
+        nazwa_firmy="adsv"
+        NIP=123456789
+        pierwsze_konto=KontoFirmowe(nazwa_firmy, NIP)
+        self.assertEqual(pierwsze_konto.nip, "Niepoprawny NIP!", "Niepoprawny NIP!")
 
-        def test_czy_przelew_przychodzacy_dziala(self):
-            imie = "Dariusz"
-            nazwisko = "Januszewski"
-            pesel = "82151166666"
-            pierwsze_konto = Konto(imie, nazwisko, pesel)
-            stare_saldo = pierwsze_konto.saldo
-            pierwsze_konto.przelew_przychodzacy(50)
-            self.assertEqual(stare_saldo + 50, pierwsze_konto.saldo, "Saldo konta nie jest poprawne")
-
-        def test_czy_przelew_wychodzacy_dziala(self):
-            imie = "Dariusz"
-            nazwisko = "Januszewski"
-            pesel = "82151166666"
-            pierwsze_konto = Konto(imie, nazwisko, pesel)
-            pierwsze_konto.saldo = 100
-            stare_saldo = pierwsze_konto.saldo
-            
-            pierwsze_konto.przelew_wychodzacy(50)
-            self.assertEqual(stare_saldo - 50, pierwsze_konto.saldo, "Saldo konta nie jest poprawne")
-        
-        def test_czy_przelew_wychodzacy_niedziala(self):
-            imie = "Dariusz"
-            nazwisko = "Januszewski"
-            pesel = "82151166666"
-            pierwsze_konto = Konto(imie, nazwisko, pesel)
-            pierwsze_konto.saldo = 10
-            stare_saldo = pierwsze_konto.saldo
-            pierwsze_konto.przelew_wychodzacy(50)
-            self.assertEqual(pierwsze_konto.saldo, stare_saldo, "Saldo konta nie jest poprawne")
-
-
-
-
-    #tutaj proszę dodawać nowe testy
+    def test_nip_konta_firmowego_poprawne(self):
+        nazwa_firmy="adsv"
+        NIP=1234567890
+        pierwsze_konto=KontoFirmowe(nazwa_firmy, NIP)
+        self.assertEqual(pierwsze_konto.nip, NIP, "Niepoprawny NIP!")
