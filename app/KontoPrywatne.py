@@ -51,3 +51,8 @@ class KontoPrywatne(Konto):
                 self.rok = "Rok nie odpowiada promocji!"
             else:
                 self.saldo = 50
+
+    def przelew_ekspres(self, wartosc):
+        super().przelew_ekspres(wartosc)
+        if not self.saldo < 0:
+            self.saldo -= 1
