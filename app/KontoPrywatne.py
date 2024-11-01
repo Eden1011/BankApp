@@ -53,3 +53,4 @@ class KontoPrywatne(Konto):
         super().przelew_ekspres(wartosc)
         if not self.saldo < 0:
             self.saldo -= 1
+            self.historia_przelewow.append(-1)

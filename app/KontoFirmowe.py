@@ -13,3 +13,4 @@ class KontoFirmowe(Konto):
         super().przelew_ekspres(wartosc)
         if not self.saldo < 0:
             self.saldo-=5
+            self.historia_przelewow.append(-5)
