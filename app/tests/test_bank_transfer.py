@@ -68,3 +68,11 @@ class TestPrzelewBankAccount(unittest.TestCase):
         pierwsze_konto.saldo = -1
         pierwsze_konto.przelew_ekspres(50)
         self.assertEqual(pierwsze_konto.saldo, -1, "Saldo konta nie jest poprawne")
+    def test_roznica_w_saldzie_dla_konta_prywatnego(self):
+        imie = "Dariusz"
+        nazwisko = "Januszewski"
+        pesel = "82151166666"
+        pierwsze_konto = Konto(imie, nazwisko, pesel)
+        pierwsze_konto.saldo = 50
+        pierwsze_konto.przelew_ekspres(50)
+        self.assertEqual(pierwsze_konto.saldo, -1, "Saldo konta nie jest poprawne")

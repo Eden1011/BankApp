@@ -21,6 +21,13 @@ class TestCreateBankAccount(unittest.TestCase):
         pesel = "321"
         pierwsze_konto = Konto(imie, nazwisko, pesel)
         self.assertEqual(pierwsze_konto.pesel, "Pesel nie jest poprawny!", "Pesel nie jest poprawny!")
+    def test_np_wiek_z_pesela(self):
+        imie = "Dariusz"
+        nazwisko = "Januszewski"
+        pesel = "321"
+        pierwsze_konto = Konto(imie, nazwisko, pesel)
+        self.assertEqual(pierwsze_konto.pesel, "Pesel nie jest poprawny!", "Pesel nie jest poprawny!")
+        self.assertEqual(pierwsze_konto.rok, "Rok nie odpowiada promocji!", "Rok nie odpowiada promocji!")
 
     def test_p_promocja(self):
         imie = "Dariusz"
