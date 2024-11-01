@@ -53,8 +53,7 @@ class TestCreateBankAccount(unittest.TestCase):
         pesel = "32154365499"
         promocja = "PROM_123"
         pierwsze_konto = Konto(imie, nazwisko, pesel, promocja)
-        rok_seniorka = pierwsze_konto.rok
-        self.assertEqual(rok_seniorka, "Rok nie odpowiada promocji!", "Rok nie odpowiada promocji!")
+        self.assertEqual(pierwsze_konto.rok, "Rok nie odpowiada promocji!", "Rok nie odpowiada promocji!")
 
     def test_dodano_rabat_do_salda_po_udanej_promocji(self):
         imie = "Dariusz"

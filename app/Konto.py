@@ -3,7 +3,10 @@ class Konto:
         self.saldo = 0
 
     def przelew_przychodzacy(self, wartosc):
-        self.saldo += wartosc
+        if wartosc > 0:
+            self.saldo += wartosc
+        else:
+            return self.saldo
     
     def przelew_wychodzacy(self, wartosc):
         if self.saldo <= 0:
