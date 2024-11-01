@@ -9,9 +9,7 @@ class Konto:
             return self.saldo
     
     def przelew_wychodzacy(self, wartosc):
-        if self.saldo <= 0:
-            return
-        if self.saldo >= wartosc:
+        if self.saldo > 0 and self.saldo >= wartosc:
             self.saldo -= wartosc
     def przelew_ekspres(self, wartosc):
         if self.saldo <= 0:

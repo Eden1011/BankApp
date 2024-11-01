@@ -27,9 +27,7 @@ class KontoPrywatne(Konto):
             self.promocja = "Promocja nie poprawna!"
 
     def dodaj_wiek(self):
-        if self.pesel == "Pesel nie jest poprawny":
-            self.rok = "Rok nie odpowiada promocji!"
-        else:
+        if self.pesel != "Pesel nie jest poprawny":
             number = self.pesel
             year = int(number[0:2])
             month = int(number[2:4])
