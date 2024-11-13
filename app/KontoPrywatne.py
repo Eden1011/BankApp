@@ -50,30 +50,22 @@ class KontoPrywatne(Konto):
             else:
                 self.saldo = 50
 
-    def zaciagnij_kredyt(self, wartosc):
-        if len(self.historia_przelewow) >= 3:
-            ostatnie_3_wplaty=self.historia_przelewow[-3:]
-            mozna_kredyt = True
-            for i in ostatnie_3_wplaty:
-                if i < 0:
-                    mozna_kredyt = False
-                    break
-            if mozna_kredyt:
-                self.kwota_kredytu += wartosc
-            else:
-                if len(self.historia_przelewow) < 5:
-                    mozna_kredyt = False
-                    self.kwota_kredytu = "Nie pozwolono na kredyt!"
-                else:
-                    ostatnie_5_wplat_sum = sum(self.historia_przelewow[-5:])
-                    if ostatnie_5_wplat_sum > wartosc:
-                        mozna_kredyt = True
-                        self.kwota_kredytu += wartosc
-                    else:
-                        self.kwota_kredytu = "Nie pozwolono na kredyt!"
+    def sprawdz_czy_3_ostatnie_elementy_historii_sa_przychodzacymi_przelewami(self,wartosc):
+        if len(self.historia_przelewow) >= 3 and all(x > 0 for x in self.historia_przelewow[-3:]):
+            self.kwota_kredytu = wartosc
         else:
-            self.kwota_kredytu="Nie pozwolono na kredyt!"
+            self.sprawdz_czy_ostatnie_5_maja_sume_wieksza_od_wartosci(wartosc)
 
+    def sprawdz_czy_ostatnie_5_maja_sume_wieksza_od_wartosci(self, wartosc):
+        if len(self.historia_przelewow) >= 5 and sum(self.historia_przelewow[-5:]) >= wartosc:
+            self.kwota_kredytu = wartosc
+        else:
+            self.kwota_kredytu = "Nie pozwolono na kredyt!"
+
+    def zaciagnij_kredyt(self, wartosc):
+        self.sprawdz_czy_3_ostatnie_elementy_historii_sa_przychodzacymi_przelewami(wartosc)
+        if self.kwota_kredytu != "Nie pozwolono na kredyt!":
+            self.saldo += wartosc
 
     def przelew_ekspres(self, wartosc):
         super().przelew_ekspres(wartosc)

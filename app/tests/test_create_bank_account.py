@@ -1,5 +1,6 @@
 import unittest
 
+from parameterized import parameterized
 from ..KontoPrywatne import KontoPrywatne as Konto
 from ..KontoFirmowe import KontoFirmowe
 
