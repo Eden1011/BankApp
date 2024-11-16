@@ -15,7 +15,7 @@ class TestBankLoan(unittest.TestCase):
         ("3_rozne_przelewy", [100, 200, -100], "Nie pozwolono na kredyt!"),
         ("wiecej_niz_3_rozne_przelewy", [100, 200, 300, -100], "Nie pozwolono na kredyt!"),
         ("5_przelewow_ale_mniejsze_niz_w_kredytu", [1, 1, 1, 1, -1], "Nie pozwolono na kredyt!"),
-        ("dokladnie_5_przelewow_i_sukces", [999, 999, 999, 999, 999], 999),
+        ("5_przelewow_z_suma_wieksza_niz_kredyt", [1000, 1000, 1000, -100, 100], 999),
     ])
     def test_sprawdz_kredyt(self, name, input, expected):
         self.pierwsze_konto.historia_przelewow = input
