@@ -7,6 +7,7 @@ class KontoPrywatne(Konto):
         self.nazwisko = nazwisko
         self.pesel = pesel
         self.promocja = promocja
+        self.kwota_kredytu=0
 
 
         if (not self.pesel.isdigit()) or len(self.pesel) != 11:
@@ -48,6 +49,23 @@ class KontoPrywatne(Konto):
                 self.rok = "Rok nie odpowiada promocji!"
             else:
                 self.saldo = 50
+
+    def sprawdz_czy_3_ostatnie_elementy_historii_sa_przychodzacymi_przelewami(self,wartosc):
+        if len(self.historia_przelewow) >= 3 and all(x > 0 for x in self.historia_przelewow[-3:]):
+            self.kwota_kredytu = wartosc
+        else:
+            self.sprawdz_czy_ostatnie_5_maja_sume_wieksza_od_wartosci(wartosc)
+
+    def sprawdz_czy_ostatnie_5_maja_sume_wieksza_od_wartosci(self, wartosc):
+        if len(self.historia_przelewow) >= 5 and sum(self.historia_przelewow[-5:]) >= wartosc:
+            self.kwota_kredytu = wartosc
+        else:
+            self.kwota_kredytu = "Nie pozwolono na kredyt!"
+
+    def zaciagnij_kredyt(self, wartosc):
+        self.sprawdz_czy_3_ostatnie_elementy_historii_sa_przychodzacymi_przelewami(wartosc)
+        if self.kwota_kredytu != "Nie pozwolono na kredyt!":
+            self.saldo += wartosc
 
     def przelew_ekspres(self, wartosc):
         super().przelew_ekspres(wartosc)
