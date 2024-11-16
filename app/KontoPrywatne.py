@@ -1,30 +1,35 @@
 from .Konto import Konto
 
+
 class KontoPrywatne(Konto):
     def __init__(self, imie, nazwisko, pesel, promocja=None):
         super().__init__()
         self.imie = imie
         self.nazwisko = nazwisko
-        self.pesel = pesel
+        self._pesel = None
         self.promocja = promocja
-        self.kwota_kredytu=0
+        self.kwota_kredytu = 0
+        self.podatek_ekspresu=1
+        self.pesel = pesel
 
+    @property
+    def pesel(self):
+        return self._pesel
 
-        if (not self.pesel.isdigit()) or len(self.pesel) != 11:
-            self.pesel = "Pesel nie jest poprawny!"
+    @pesel.setter
+    def pesel(self, new_pesel):
+        if (not str(new_pesel).isdigit()) or len(str(new_pesel)) != 11:
+            self._pesel = "Pesel nie jest poprawny!"
             self.rok = "Rok nie odpowiada promocji!"
             self.promocja = "Promocja nie poprawna!"
         else:
+            self._pesel = new_pesel
             self.dodaj_wiek()
             self.sprawdz_promocje()
             self.sprawdz_poprawnosc_wieku_do_promocji()
 
     def sprawdz_promocje(self):
-        if self.promocja is None:
-            pass
-        elif self.promocja is not None and len(self.promocja) == 8 and self.promocja.startswith("PROM_"):
-            pass
-        else:
+        if self.promocja is not None and (len(self.promocja) != 8 or not self.promocja.startswith("PROM_")):
             self.promocja = "Promocja nie poprawna!"
 
     def dodaj_wiek(self):
@@ -47,6 +52,7 @@ class KontoPrywatne(Konto):
         if self.promocja is not None and self.promocja.startswith("PROM_"):
             if self.rok <= 1960:
                 self.rok = "Rok nie odpowiada promocji!"
+                self.promocja = "Promocja nie poprawna!"
             else:
                 self.saldo = 50
 
@@ -70,5 +76,5 @@ class KontoPrywatne(Konto):
     def przelew_ekspres(self, wartosc):
         super().przelew_ekspres(wartosc)
         if not self.saldo < 0:
-            self.saldo -= 1
+            self.saldo -= self.podatek_ekspresu
             self.historia_przelewow.append(-1)

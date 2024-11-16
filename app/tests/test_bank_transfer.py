@@ -1,95 +1,67 @@
 import unittest
 
+from parameterized import parameterized
+
 from ..KontoFirmowe import KontoFirmowe
 from ..KontoPrywatne import KontoPrywatne as Konto
 
 class TestPrzelewBankAccount(unittest.TestCase):
 
-    def test_czy_da_sie_odebrac_zerowy_przelew(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        stare_saldo = pierwsze_konto.saldo
-        pierwsze_konto.przelew_przychodzacy(0)
-        self.assertEqual(stare_saldo + 0, pierwsze_konto.saldo, "Saldo konta nie jest poprawne")
+    def setUp(self):
+        self.pierwsze_konto = Konto("Dariusz", "Januszewski", "82151166666")
+        self.konto_firmowe = KontoFirmowe("Dariusz", "1234567890")
 
+    #Edge case przelewu przychodzacego
+    def test_czy_da_sie_odebrac_zerowy_przelew(self):
+        self.stare_Saldo = self.pierwsze_konto.saldo
+        self.pierwsze_konto.przelew_przychodzacy(0)
+        self.assertEqual(self.stare_Saldo + 0, self.pierwsze_konto.saldo)
+
+    #Standardowy test jednorazowy dla przelewu przychodzacego
     def test_czy_przelew_przychodzacy_dziala(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        stare_saldo = pierwsze_konto.saldo
-        pierwsze_konto.przelew_przychodzacy(50)
-        self.assertEqual(stare_saldo + 50, pierwsze_konto.saldo, "Saldo konta nie jest poprawne")
+        self.stare_Saldo = self.pierwsze_konto.saldo
+        self.pierwsze_konto.przelew_przychodzacy(50)
+        self.assertEqual(self.stare_Saldo + 50, self.pierwsze_konto.saldo)
+
 
     def test_czy_przelew_wychodzacy_dziala(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        pierwsze_konto.saldo = 100
-        stare_saldo = pierwsze_konto.saldo
+        self.pierwsze_konto.saldo = 100
+        self.stare_saldo = self.pierwsze_konto.saldo
 
-        pierwsze_konto.przelew_wychodzacy(50)
-        self.assertEqual(stare_saldo - 50, pierwsze_konto.saldo, "Saldo konta nie jest poprawne")
+        self.pierwsze_konto.przelew_wychodzacy(50)
+        self.assertEqual(self.stare_saldo - 50, self.pierwsze_konto.saldo, "Saldo konta nie jest poprawne")
 
     def test_czy_przelew_wychodzacy_niedziala(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        pierwsze_konto.saldo = 10
-        stare_saldo = pierwsze_konto.saldo
-        pierwsze_konto.przelew_wychodzacy(50)
-        self.assertEqual(pierwsze_konto.saldo, stare_saldo, "Saldo konta nie jest poprawne")
+        self.pierwsze_konto.saldo = 10
+        self.stare_saldo = self.pierwsze_konto.saldo
+        self.pierwsze_konto.przelew_wychodzacy(50)
+        self.assertEqual(self.pierwsze_konto.saldo, self.stare_saldo, "Saldo konta nie jest poprawne")
 
     def test_oplaty_zaksiegowania_dla_firm(self):
-        nazwa="abd"
-        nip=1234567890
-        pierwsze_konto=KontoFirmowe(nazwa, nip)
-        pierwsze_konto.saldo=51
-        pierwsze_konto.przelew_ekspres(50)
-        self.assertEqual(pierwsze_konto.saldo, -4, "Saldo konta nie jest poprawne")
+        self.konto_firmowe.saldo=51
+        self.konto_firmowe.przelew_ekspres(50)
+        self.assertEqual(self.konto_firmowe.saldo, -4, "Saldo konta nie jest poprawne")
 
     def test_czy_mozna_wysylac_przelewy_z_ujemnym_saldem(self):
-        nazwa = "abd"
-        nip = 1234567890
-        pierwsze_konto = KontoFirmowe(nazwa, nip)
-        pierwsze_konto.saldo = -5
-        pierwsze_konto.przelew_ekspres(50)
-        self.assertEqual(pierwsze_konto.saldo, -5, "Saldo konta nie jest poprawne")
+        self.konto_firmowe.saldo = -5
+        self.konto_firmowe.przelew_ekspres(50)
+        self.assertEqual(self.konto_firmowe.saldo, -5, "Saldo konta nie jest poprawne")
 
     def test_czy_mozna_wysylac_przelewy_z_ujemnym_saldem_dla_kont_prywatnych(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        pierwsze_konto.saldo = -1
-        pierwsze_konto.przelew_ekspres(50)
-        self.assertEqual(pierwsze_konto.saldo, -1, "Saldo konta nie jest poprawne")
+        self.pierwsze_konto.saldo = -1
+        self.pierwsze_konto.przelew_ekspres(50)
+        self.assertEqual(self.pierwsze_konto.saldo, -1, "Saldo konta nie jest poprawne")
+
     def test_roznica_w_saldzie_dla_konta_prywatnego(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        pierwsze_konto.saldo = 50
-        pierwsze_konto.przelew_ekspres(50)
-        self.assertEqual(pierwsze_konto.saldo, -1, "Saldo konta nie jest poprawne")
+        self.pierwsze_konto.saldo = 50
+        self.pierwsze_konto.przelew_ekspres(50)
+        self.assertEqual(self.pierwsze_konto.saldo, -1, "Saldo konta nie jest poprawne")
 
     def test_historii_przelewow_wychodzacych(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        pierwsze_konto.saldo = 50
-        pierwsze_konto.przelew_ekspres(50)
-        self.assertEqual(pierwsze_konto.historia_przelewow, [-50, -1], "Historia przelewow nie jest poprawna!")
+        self.pierwsze_konto.saldo = 50
+        self.pierwsze_konto.przelew_ekspres(50)
+        self.assertEqual(self.pierwsze_konto.historia_przelewow, [-50, -1], "Historia przelewow nie jest poprawna!")
 
     def test_historii_przelewow_przychodzacych(self):
-        imie = "Dariusz"
-        nazwisko = "Januszewski"
-        pesel = "82151166666"
-        pierwsze_konto = Konto(imie, nazwisko, pesel)
-        pierwsze_konto.przelew_przychodzacy(50)
-        self.assertEqual(pierwsze_konto.historia_przelewow, [50], "Historia przelewow nie jest poprawna!")
+        self.pierwsze_konto.przelew_przychodzacy(50)
+        self.assertEqual(self.pierwsze_konto.historia_przelewow, [50], "Historia przelewow nie jest poprawna!")
