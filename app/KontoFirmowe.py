@@ -15,3 +15,7 @@ class KontoFirmowe(Konto):
         if not self.saldo < 0:
             self.saldo-=self.podatek_eskpresu
             self.historia_przelewow.append(-5)
+
+    def zaciagnij_kredyt(self, wartosc):
+        if self.saldo >= (2 * wartosc) and any(x == -1755 for x in self.historia_przelewow):
+            self.saldo+=wartosc
