@@ -2,6 +2,7 @@ import unittest
 
 from parameterized import parameterized
 from ..KontoPrywatne import KontoPrywatne as Konto
+from ..KontoFirmowe import KontoFirmowe as KontoFirmowe
 
 class TestBankLoan(unittest.TestCase):
 
@@ -21,3 +22,19 @@ class TestBankLoan(unittest.TestCase):
         self.pierwsze_konto.historia_przelewow = input
         self.pierwsze_konto.zaciagnij_kredyt(999)
         self.assertEqual(self.pierwsze_konto.kwota_kredytu, expected)
+
+class TestFirmBankLoan(unittest.TestCase):
+    def setUp(self):
+        self.pierwsze_konto = KontoFirmowe("abc", 1234567890)
+    @parameterized.expand([
+        ("brakuje salda, oraz brakuje historii", (0, []), 0),
+        ("brakuje salda, ale nie brakuje historii", (0, [-1755]), 0),
+        ("nie brakuje salda, ani historii", (4, [-1755]), 6),
+    ])
+    def test_firma_kredyt(self, name, tuple, koncowe_saldo_expected):
+        saldo_start = tuple[0]
+        historia_przelewow_start = tuple[1]
+        self.pierwsze_konto.saldo = saldo_start
+        self.pierwsze_konto.historia_przelewow = historia_przelewow_start
+        self.pierwsze_konto.zaciagnij_kredyt(2)
+        self.assertEqual(self.pierwsze_konto.saldo, koncowe_saldo_expected)
