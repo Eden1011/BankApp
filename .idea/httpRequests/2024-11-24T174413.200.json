@@ -1,0 +1,13 @@
+{
+  "message": "Konto prywatne znalezione oraz zmienione!",
+  "nowe_Dane": {
+    "imie": "N",
+    "nazwisko": "G",
+    "pesel": "11111111111"
+  },
+  "stare_Dane": {
+    "imie": "N",
+    "nazwisko": "G",
+    "pesel": "11111111111"
+  }
+}
