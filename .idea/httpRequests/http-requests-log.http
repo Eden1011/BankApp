@@ -1,3 +1,88 @@
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-02T193640.409.json
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-02T193638.201.json
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-02T193556.500.html
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-02T193534.500.html
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-02T193528.201.json
+
+###
+
 PATCH http://localhost:5000/app/konta/04282511399
 Content-Type: application/json
 Content-Length: 37

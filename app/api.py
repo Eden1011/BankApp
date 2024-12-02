@@ -9,10 +9,15 @@ def stworz_konto_prywatne():
     data = request.get_json()
     print(f"Otrzymano request POST: {data}")
     konto = KontoPrywatne(data["imie"], data["nazwisko"], data["pesel"])
-    RejestrKont.dodaj_konto(konto)
-    return jsonify(
-        {"message": "Konto prywatne utworzone!"}
-    ), 201
+    dodaj = RejestrKont.dodaj_konto(konto)
+    if dodaj is None:
+        return jsonify(
+            {"message": "Nie utworzono konta. Istnieje juz taki pesel w rejestrze"}
+        ), 409
+    else:
+        return jsonify(
+            {"message": "Konto prywatne utworzone!"}
+        ), 201
 
 @app.route('/app/konta/liczba', methods=['GET'])
 def wez_liczbe_kont():
