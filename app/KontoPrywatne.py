@@ -9,7 +9,7 @@ class KontoPrywatne(Konto):
         self._pesel = None
         self.promocja = promocja
         self.kwota_kredytu = 0
-        self.podatek_ekspresu=1
+        self.podatek_ekspresu = 1
         self.pesel = pesel
 
     @property
@@ -38,13 +38,7 @@ class KontoPrywatne(Konto):
             year = int(number[0:2])
             month = int(number[2:4])
             day = int(number[4:6])
-            year += {
-                0: 1900,
-                1: 2000,
-                2: 2100,
-                3: 2200,
-                4: 1800,
-            }[month // 20]
+            year += {0: 1900, 1: 2000, 2: 2100, 3: 2200, 4: 1800, }[month // 20]
             month = month % 20
             self.rok = year
 
@@ -56,7 +50,7 @@ class KontoPrywatne(Konto):
             else:
                 self.saldo = 50
 
-    def sprawdz_czy_3_ostatnie_elementy_historii_sa_przychodzacymi_przelewami(self,wartosc):
+    def sprawdz_czy_3_ostatnie_elementy_historii_sa_przychodzacymi_przelewami(self, wartosc):
         if len(self.historia_przelewow) >= 3 and all(x > 0 for x in self.historia_przelewow[-3:]):
             self.kwota_kredytu = wartosc
         else:

@@ -5,24 +5,24 @@ from parameterized import parameterized
 from ..KontoFirmowe import KontoFirmowe
 from ..KontoPrywatne import KontoPrywatne as Konto
 
+
 class TestPrzelewBankAccount(unittest.TestCase):
 
     def setUp(self):
         self.pierwsze_konto = Konto("Dariusz", "Januszewski", "82151166666")
         self.konto_firmowe = KontoFirmowe("Dariusz", "1234567890")
 
-    #Edge case przelewu przychodzacego
+    # Edge case przelewu przychodzacego
     def test_czy_da_sie_odebrac_zerowy_przelew(self):
         self.stare_Saldo = self.pierwsze_konto.saldo
         self.pierwsze_konto.przelew_przychodzacy(0)
         self.assertEqual(self.stare_Saldo + 0, self.pierwsze_konto.saldo)
 
-    #Standardowy test jednorazowy dla przelewu przychodzacego
+    # Standardowy test jednorazowy dla przelewu przychodzacego
     def test_czy_przelew_przychodzacy_dziala(self):
         self.stare_Saldo = self.pierwsze_konto.saldo
         self.pierwsze_konto.przelew_przychodzacy(50)
         self.assertEqual(self.stare_Saldo + 50, self.pierwsze_konto.saldo)
-
 
     def test_czy_przelew_wychodzacy_dziala(self):
         self.pierwsze_konto.saldo = 100
@@ -38,7 +38,7 @@ class TestPrzelewBankAccount(unittest.TestCase):
         self.assertEqual(self.pierwsze_konto.saldo, self.stare_saldo, "Saldo konta nie jest poprawne")
 
     def test_oplaty_zaksiegowania_dla_firm(self):
-        self.konto_firmowe.saldo=51
+        self.konto_firmowe.saldo = 51
         self.konto_firmowe.przelew_ekspres(50)
         self.assertEqual(self.konto_firmowe.saldo, -4, "Saldo konta nie jest poprawne")
 

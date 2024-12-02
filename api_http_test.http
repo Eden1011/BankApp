@@ -1,0 +1,11 @@
+### Dodaj osobe, sprawdz czy za drugim razem bedzie konflikt
+POST localhost:5000/app/konta
+Content-Type: application/json
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+###

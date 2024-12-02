@@ -1,17 +1,19 @@
 import unittest, requests
 
+
 class TestApiCrud(unittest.TestCase):
     def setUp(self):
-        self.user = {
-            "imie": "Dariusz",
-            "nazwisko": "Januszewski",
-            "pesel": "11111111111"
-        }
+        self.user = {"imie": "Dariusz", "nazwisko": "Januszewski", "pesel": "11111111111"}
+
     def test_stworz_konto(self):
         odp = requests.post("http://localhost:5000/app/konta", json=self.user)
         self.assertEqual(odp.status_code, 201)
         self.assertEqual(odp.json()["message"], "Konto prywatne utworzone!")
 
+    def test_stworz_konto_ale_ten_sam_pesel(self):
+        odp = requests.post("http://localhost:5000/app/konta", json=self.user)
+        self.assertEqual(odp.status_code, 409)
+        self.assertEqual(odp.json()["message"], "Nie utworzono konta. Istnieje juz taki pesel w rejestrze")
 
     def test_wez_liczbe_konto(self):
         odp = requests.get("http://localhost:5000/app/konta/liczba")
@@ -34,8 +36,7 @@ class TestApiCrud(unittest.TestCase):
 
     def test_zmien_konto(self):
         odp = requests.post("http://localhost:5000/app/konta", json=self.user)
-        odp = requests.patch(f"http://localhost:5000/app/konta/{self.user['pesel']}",
-                             json={"imie": "Nowe_Imie"})
+        odp = requests.patch(f"http://localhost:5000/app/konta/{self.user['pesel']}", json={"imie": "Nowe_Imie"})
         self.assertEqual(odp.status_code, 200)
         self.assertEqual(odp.json()["message"], "Konto prywatne znalezione oraz zmienione!")
 
@@ -45,7 +46,6 @@ class TestApiCrud(unittest.TestCase):
         self.assertEqual(odp.json()["message"], "Nie znaleziono konta!")
 
     def test_usun_konto(self):
-        odp = requests.post("http://localhost:5000/app/konta", json=self.user)
         odp = requests.delete(f"http://localhost:5000/app/konta/{self.user['pesel']}")
         self.assertEqual(odp.status_code, 200)
         self.assertEqual(odp.json()["message"], "Konto prywatne usunieto!")

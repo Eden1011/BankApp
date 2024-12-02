@@ -15,6 +15,9 @@ class TestRejestrKont(unittest.TestCase):
     def setUp(self):
         RejestrKont.dodaj_konto(self.pierwsze_konto)
 
+    def test_dodaj_to_samo_konto_otrzymaj_none(self):
+        self.assertEqual(RejestrKont.dodaj_konto(self.pierwsze_konto), None)
+
     def test_dodaj_konto_i_poprawna_liczba_rejestru(self):
         self.assertEqual(RejestrKont.pobierz_liczbe_kont(), 1)
 
