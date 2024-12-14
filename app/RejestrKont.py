@@ -4,12 +4,13 @@ class RejestrKont:
 
     @classmethod
     def dodaj_konto(cls, konto):
-        for i in cls.rejestr:
-            if i.pesel == konto.pesel:
-                return None
-        cls.rejestr.append(konto)
-        cls.liczba += 1
-        return konto
+        if len(konto.pesel) == 11:
+            for i in cls.rejestr:
+                if i.pesel == konto.pesel:
+                    return None
+            cls.rejestr.append(konto)
+            cls.liczba += 1
+            return konto
 
     @classmethod
     def znajdz_konto(cls, pesel):
