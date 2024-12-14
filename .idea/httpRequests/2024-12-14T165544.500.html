@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang=en>
 <head>
-    <title>TypeError: unhashable type: &#39;dict&#39;
+    <title>IndexError: list index out of range
         // Werkzeug Debugger</title>
     <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
     <link rel="shortcut icon"
@@ -11,14 +11,14 @@
         var CONSOLE_MODE = false,
             EVALEX = true,
             EVALEX_TRUSTED = false,
-            SECRET = "YZ5LgJfgksWfZc0zEZKT";
+            SECRET = "Z8CJDH4ldzMhpT3KnAtL";
     </script>
 </head>
 <body style="background-color: #fff">
 <div class="debugger">
-    <h1>TypeError</h1>
+    <h1>IndexError</h1>
     <div class="detail">
-        <p class="errormsg">TypeError: unhashable type: &#39;dict&#39;
+        <p class="errormsg">IndexError: list index out of range
         </p>
     </div>
     <h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
@@ -26,7 +26,7 @@
         <h3></h3>
         <ul>
             <li>
-                <div class="frame" id="frame-139736299532592">
+                <div class="frame" id="frame-140657414641632">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py"</cite>,
                         line <em class="line">1536</em>,
                         in <code class="function">__call__</code></h4>
@@ -42,7 +42,7 @@
                 </div>
 
             <li>
-                <div class="frame" id="frame-139736299533168">
+                <div class="frame" id="frame-140657414646096">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py"</cite>,
                         line <em class="line">1514</em>,
                         in <code class="function">wsgi_app</code></h4>
@@ -63,7 +63,7 @@
                 </div>
 
             <li>
-                <div class="frame" id="frame-139736299532880">
+                <div class="frame" id="frame-140657414646240">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py"</cite>,
                         line <em class="line">1511</em>,
                         in <code class="function">wsgi_app</code></h4>
@@ -86,7 +86,7 @@
                 </div>
 
             <li>
-                <div class="frame" id="frame-139736299532304">
+                <div class="frame" id="frame-140657414646384">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py"</cite>,
                         line <em class="line">919</em>,
                         in <code class="function">full_dispatch_request</code></h4>
@@ -109,7 +109,7 @@
                 </div>
 
             <li>
-                <div class="frame" id="frame-139736299531728">
+                <div class="frame" id="frame-140657414646528">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py"</cite>,
                         line <em class="line">917</em>,
                         in <code class="function">full_dispatch_request</code></h4>
@@ -132,7 +132,7 @@
                 </div>
 
             <li>
-                <div class="frame" id="frame-139736299532448">
+                <div class="frame" id="frame-140657414646672">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py"</cite>,
                         line <em class="line">902</em>,
                         in <code class="function">dispatch_request</code></h4>
@@ -153,28 +153,27 @@
                 </div>
 
             <li>
-                <div class="frame" id="frame-139736299532736">
+                <div class="frame" id="frame-140657414646816">
                     <h4>File <cite class="filename">"/home/krzys1234/Studia/Testowanie/bank-app-tdd-2024-Eden1011/app/api.py"</cite>,
-                        line <em class="line">14</em>,
-                        in <code class="function">stworz_konto_prywatne</code></h4>
+                        line <em class="line">58</em>,
+                        in <code class="function">wez_liczbe_kont</code></h4>
                     <div class="source ">
-                        <pre class="line before"><span class="ws">    </span>data = request.get_json()</pre>
-                        <pre class="line before"><span class="ws">    </span>print(f&#34;Otrzymano request POST: {data}&#34;)</pre>
-                        <pre class="line before"><span class="ws">    </span>konto = KontoPrywatne(data[&#34;imie&#34;], data[&#34;nazwisko&#34;], data[&#34;pesel&#34;])</pre>
-                        <pre class="line before"><span
-                                class="ws">    </span>dodaj = RejestrKont.dodaj_konto(konto)</pre>
-                        <pre class="line before"><span class="ws">    </span>if dodaj is None:</pre>
-                        <pre class="line current"><span class="ws">        </span>return jsonify({
-<span class="ws">        </span>               </pre>
-                        <pre class="line after"><span class="ws">            </span>{&#34;message&#34;: &#34;Nie utworzono konta. Istnieje juz taki pesel w rejestrze&#34;}</pre>
-                        <pre class="line after"><span class="ws">        </span>}), 409</pre>
-                        <pre class="line after"><span class="ws">    </span>else:</pre>
-                        <pre class="line after"><span class="ws">        </span>return jsonify(</pre>
-                        <pre class="line after"><span class="ws">            </span>{&#34;message&#34;: &#34;Konto prywatne utworzone!&#34;}</pre>
+                        <pre class="line before"><span class="ws"></span>def wez_liczbe_kont():</pre>
+                        <pre class="line before"><span class="ws">    </span>liczba_kont = RejestrKont.pobierz_liczbe_kont()</pre>
+                        <pre class="line before"><span class="ws">    </span>return jsonify({</pre>
+                        <pre class="line before"><span class="ws">        </span>&#34;message&#34;: f&#34;Liczba kont w rejestrze to {liczba_kont}!&#34;,</pre>
+                        <pre class="line before"><span class="ws">        </span>&#34;liczba&#34;: liczba_kont,</pre>
+                        <pre class="line current"><span class="ws">        </span>&#34;ostatnie_konto&#34;: RejestrKont.rejestr[0].pesel
+<span class="ws">        </span>                  ^^^^^^^^^^^^^^^^^^^^^^</pre>
+                        <pre class="line after"><span class="ws">    </span>}), 200</pre>
+                        <pre class="line after"><span class="ws"></span> </pre>
+                        <pre class="line after"><span class="ws"></span> </pre>
+                        <pre class="line after"><span class="ws"></span>@app.route(&#39;/app/konta/&lt;pesel&gt;&#39;, methods=[&#39;GET&#39;])</pre>
+                        <pre class="line after"><span class="ws"></span>def wez_konto_po_peselu(pesel):</pre>
                     </div>
                 </div>
         </ul>
-        <blockquote>TypeError: unhashable type: &#39;dict&#39;
+        <blockquote>IndexError: list index out of range
         </blockquote>
     </div>
 
@@ -201,10 +200,10 @@
   File &#34;/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py&#34;, line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &#34;/home/krzys1234/Studia/Testowanie/bank-app-tdd-2024-Eden1011/app/api.py&#34;, line 14, in stworz_konto_prywatne
-    return jsonify({
-                   ^
-TypeError: unhashable type: &#39;dict&#39;
+  File &#34;/home/krzys1234/Studia/Testowanie/bank-app-tdd-2024-Eden1011/app/api.py&#34;, line 58, in wez_liczbe_kont
+    &#34;ostatnie_konto&#34;: RejestrKont.rejestr[0].pesel
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
 </textarea>
     </div>
     <div class="explanation">
@@ -258,10 +257,10 @@ Traceback (most recent call last):
   File "/home/krzys1234/Studia/ProtokolyWeb/lab2/zadanie3/pythonProject/.venv/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/krzys1234/Studia/Testowanie/bank-app-tdd-2024-Eden1011/app/api.py", line 14, in stworz_konto_prywatne
-    return jsonify({
-                   ^
-TypeError: unhashable type: 'dict'
+  File "/home/krzys1234/Studia/Testowanie/bank-app-tdd-2024-Eden1011/app/api.py", line 58, in wez_liczbe_kont
+    "ostatnie_konto": RejestrKont.rejestr[0].pesel
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
 
 
 -->

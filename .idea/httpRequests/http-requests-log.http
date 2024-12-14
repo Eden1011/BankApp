@@ -1,251 +1,755 @@
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T171511.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 43
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
+
+<> 2024-12-14T171510.404.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171508.404.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 43
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
+
+<> 2024-12-14T171502.400.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 43
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
+
+<> 2024-12-14T171501.400.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 43
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
+
+<> 2024-12-14T171459.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171458.200.json
+
+###
+
 POST http://localhost:5000/app/konta
 Content-Type: application/json
-Content-Length: 67
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 75
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
   "imie": "Dariusz",
   "nazwisko": "Kowalski",
-  "pesel": "100"
+  "pesel": "12345678901"
 }
 
-<> 2024-12-02T193640.409.json
+<> 2024-12-14T171457.201.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 43
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
+
+<> 2024-12-14T171452.404.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 43
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
+
+<> 2024-12-14T171451.404.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171449.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171334.400.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171333.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171330.400.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171326.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171323.200.json
 
 ###
 
 POST http://localhost:5000/app/konta
 Content-Type: application/json
-Content-Length: 67
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 75
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
   "imie": "Dariusz",
   "nazwisko": "Kowalski",
-  "pesel": "100"
+  "pesel": "12345678901"
 }
 
-<> 2024-12-02T193638.201.json
+<> 2024-12-14T171319.201.json
 
 ###
 
-POST http://localhost:5000/app/konta
+POST http://localhost:5000/app/konta/12345678901/przelew
 Content-Type: application/json
-Content-Length: 67
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-  "imie": "Dariusz",
-  "nazwisko": "Kowalski",
-  "pesel": "100"
+  "wartosc": 300,
+  "typ": "przychodzacy"
 }
 
-<> 2024-12-02T193556.500.html
+<> 2024-12-14T171306.200.json
 
 ###
 
-POST http://localhost:5000/app/konta
+POST http://localhost:5000/app/konta/12345678901/przelew
 Content-Type: application/json
-Content-Length: 67
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-  "imie": "Dariusz",
-  "nazwisko": "Kowalski",
-  "pesel": "100"
+  "wartosc": 300,
+  "typ": "ekspres"
 }
 
-<> 2024-12-02T193534.500.html
+<> 2024-12-14T171304.400.json
 
 ###
 
-POST http://localhost:5000/app/konta
+POST http://localhost:5000/app/konta/12345678901/przelew
 Content-Type: application/json
-Content-Length: 67
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-  "imie": "Dariusz",
-  "nazwisko": "Kowalski",
-  "pesel": "100"
+  "wartosc": 300,
+  "typ": "ekspres"
 }
 
-<> 2024-12-02T193528.201.json
+<> 2024-12-14T171302.200.json
 
 ###
 
-PATCH http://localhost:5000/app/konta/04282511399
+POST http://localhost:5000/app/konta/12345678901/przelew
 Content-Type: application/json
-Content-Length: 37
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-  "imie" : "N",
-  "nazwisko": "G"
+  "wartosc": 300,
+  "typ": "przychodzacy"
 }
 
-<> 2024-11-24T174459.404.json
+<> 2024-12-14T171300.200.json
 
 ###
 
-PATCH http://localhost:5000/app/konta/11111111111
+POST http://localhost:5000/app/konta/12345678901/przelew
 Content-Type: application/json
-Content-Length: 37
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-  "imie" : "N",
-  "nazwisko": "G"
+  "wartosc": 300,
+  "typ": "ekspres"
 }
 
-<> 2024-11-24T174447.200.json
+<> 2024-12-14T171253.400.json
 
 ###
 
-PATCH http://localhost:5000/app/konta/11111111111
+POST http://localhost:5000/app/konta/12345678901/przelew
 Content-Type: application/json
-Content-Length: 37
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-  "imie" : "N",
-  "nazwisko": "G"
+  "wartosc": 300,
+  "typ": "ekspres"
 }
 
-<> 2024-11-24T174413.200.json
+<> 2024-12-14T171252.400.json
 
 ###
 
-DELETE http://localhost:5000/app/konta/11111111111
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 0
 
-<> 2024-11-24T174308.200.json
+{
+  "wartosc": 300,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171252.200.json
 
 ###
 
-GET http://localhost:5000/app/konta/0
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
-<> 2024-11-24T173949.404.json
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171249.200.json
 
 ###
 
-GET http://localhost:5000/app/konta/11111111111
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
-<> 2024-11-24T173912.200.json
+{
+  "wartosc": 301,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171237.400.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171233.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171231.400.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 40
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "ekspres"
+}
+
+<> 2024-12-14T171229.200.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T171209.200.json
 
 ###
 
 GET http://localhost:5000/app/konta/liczba
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
-<> 2024-11-24T173759.200.json
-
-###
-
-POST http://localhost:5000/app/konta/liczba
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 0
-
-<> 2024-11-24T173744.405.html
-
-###
-
-POST http://localhost:5000/app/konto/liczba
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-content-length: 0
-
-<> 2024-11-24T173712.404.html
+<> 2024-12-14T171207.200.json
 
 ###
 
 POST http://localhost:5000/app/konta
 Content-Type: application/json
-Content-Length: 72
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 75
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
- "imie": "Dariusz",
- "nazwisko": "Kowalski",
- "pesel": "11111111111"
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "12345678901"
 }
 
-<> 2024-11-24T173637.201.json
+<> 2024-12-14T171205.201.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T170519.400.json
+
+###
+
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T170518.200.json
 
 ###
 
 POST http://localhost:5000/app/konta
 Content-Type: application/json
-Content-Length: 72
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 75
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
- "imie": "Dariusz",
- "nazwisko": "Kowalski",
- "pesel": "11111111111"
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "12345678901"
 }
 
-<> 2024-11-24T173631.201.json
+<> 2024-12-14T170516.201.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T170514.404.json
+
+###
+
+POST http://localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T170510.404.json
+
+###
+
+POST http://localhost:5000/app/konta/100/przelew
+Content-Type: application/json
+Content-Length: 45
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+<> 2024-12-14T170503.404.json
+
+###
+
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T170442.200.json
 
 ###
 
 POST http://localhost:5000/app/konta
 Content-Type: application/json
-Content-Length: 72
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Length: 75
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
- "imie": "Dariusz",
- "nazwisko": "Kowalski",
- "pesel": "04282511399"
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "12345678901"
 }
 
-<> 2024-11-24T173257.201.json
+<> 2024-12-14T170440.201.json
 
 ###
 
 POST http://localhost:5000/app/konta
-User-Agent: IntelliJ HTTP Client/PyCharm 2024.3
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
-content-length: 0
 
-<> 2024-11-24T173018.415.html
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "10000000000000"
+}
+
+<> 2024-12-14T170431.409.json
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 77
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "1000000000000"
+}
+
+<> 2024-12-14T170429.409.json
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-14T170420.409.json
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-14T170341.409.json
+
+###
+
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T165547.200.json
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-14T165546.201.json
+
+###
+
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T165544.500.html
+
+###
+
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T165525.500.html
+
+###
+
+POST http://localhost:5000/app/konta
+Content-Type: application/json
+Content-Length: 67
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "imie": "Dariusz",
+  "nazwisko": "Kowalski",
+  "pesel": "100"
+}
+
+<> 2024-12-14T165524.201.json
+
+###
+
+GET http://localhost:5000/app/konta/liczba
+User-Agent: IntelliJ HTTP Client/PyCharm 2024.3.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2024-12-14T165423.500.html
 
 ###
 

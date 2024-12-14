@@ -5,7 +5,26 @@ Content-Type: application/json
 {
   "imie": "Dariusz",
   "nazwisko": "Kowalski",
-  "pesel": "100"
+  "pesel": "12345678901"
 }
 
 ###
+GET localhost:5000/app/konta/liczba
+
+### Dodaj 300 zloty do salda dla konta
+POST localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+
+{
+  "wartosc": 300,
+  "typ": "przychodzacy"
+}
+
+### Zabierz mu te 300 zloty
+POST localhost:5000/app/konta/12345678901/przelew
+Content-Type: application/json
+
+{
+  "wartosc": 300,
+  "typ": "wychodzacy"
+}
