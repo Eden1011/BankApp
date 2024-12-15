@@ -1,14 +1,15 @@
 import unittest
 
 from parameterized import parameterized
+from unittest.mock import patch, mock_open
 
 from ..KontoFirmowe import KontoFirmowe
 from ..KontoPrywatne import KontoPrywatne as Konto
 
 
 class TestPrzelewBankAccount(unittest.TestCase):
-
-    def setUp(self):
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=True)
+    def setUp(self, mock_zapytanieDoMF):
         self.pierwsze_konto = Konto("Dariusz", "Januszewski", "82151166666")
         self.konto_firmowe = KontoFirmowe("Dariusz", "1234567890")
 

@@ -1,4 +1,6 @@
 import unittest
+from operator import truediv
+from unittest.mock import patch, mock_open
 
 from parameterized import parameterized
 from ..KontoPrywatne import KontoPrywatne as Konto
@@ -25,13 +27,15 @@ class TestBankLoan(unittest.TestCase):
 
 
 class TestFirmBankLoan(unittest.TestCase):
-    def setUp(self):
-        self.pierwsze_konto = KontoFirmowe("abc", 1234567890)
+
+
 
     @parameterized.expand([("brakuje salda, oraz brakuje historii", (0, []), 0),
-        ("brakuje salda, ale nie brakuje historii", (0, [-1755]), 0),
-        ("nie brakuje salda, ani historii", (4, [-1755]), 6), ])
-    def test_firma_kredyt(self, name, tuple, koncowe_saldo_expected):
+                           ("brakuje salda, ale nie brakuje historii", (0, [-1755]), 0),
+                           ("nie brakuje salda, ani historii", (4, [-1755]), 6), ])
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=True)
+    def test_firma_kredyt(self, name, tuple, koncowe_saldo_expected, mock_zapytanieDoMF):
+        self.pierwsze_konto = KontoFirmowe("abc", "8461627563")
         saldo_start = tuple[0]
         historia_przelewow_start = tuple[1]
         self.pierwsze_konto.saldo = saldo_start

@@ -1,4 +1,6 @@
 import unittest
+from pickle import FALSE
+from unittest.mock import mock_open, patch
 
 from parameterized import parameterized
 
@@ -40,7 +42,22 @@ class TestCreateBankAccount(unittest.TestCase):
         self.assertEqual(self.pierwsze_konto.rok, "Rok nie odpowiada promocji!")
         self.assertEqual(self.pierwsze_konto.promocja, "Promocja nie poprawna!")
 
-    @parameterized.expand([("poprawny nip", 1234567890, 1234567890), ("niepoprawny nip", 1, "Niepoprawny NIP!")])
-    def test_konto_firmowe(self, name, input, expected):
-        self.konto_firmowe = KontoFirmowe("PLACEHOLDER", NIP=input)
-        self.assertEqual(self.konto_firmowe.nip, expected)
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=False)
+    def test_tworzenie_konta_firmowego_niepoprawny_nip(self, mock_zapytanieDoMF):
+        pierwsze_konto = KontoFirmowe("PLACEHOLDER", NIP="5431243")
+        self.assertEqual(pierwsze_konto.nip, "Niepoprawny NIP!")
+
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=True)
+    def test_tworzenie_konta_firmowego_poprawny_nip(self, mock_zapytanieDoMF):
+        pierwsze_konto = KontoFirmowe("PLACEHOLDER", NIP="8461627561")
+        self.assertEqual(pierwsze_konto.nip, "8461627561")
+
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=False)
+    def test_tworzenie_firmowe_niepoprawny_10_liczoby_nip_error(self, mock_zapytanieDoMF):
+        with self.assertRaises(ValueError) as context:
+            pierwsze_konto = KontoFirmowe("PLACEHOLDER", NIP="1111111111")
+        self.assertEqual(str(context.exception), "Firma nie zarejestrowana!")
+
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=False)
+    def test_zapytanie_DoMF(self, mock_zapytanieDoMF):
+        self.assertEqual(KontoFirmowe.zapytanieDoMF("8461627560"), False)
