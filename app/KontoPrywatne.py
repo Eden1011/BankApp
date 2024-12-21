@@ -11,6 +11,7 @@ class KontoPrywatne(Konto):
         self.kwota_kredytu = 0
         self.podatek_ekspresu = 1
         self.pesel = pesel
+        self.wstep_do_Mail = "Twoja historia przelewow dla konta Prywatnego to:"
 
     @property
     def pesel(self):
