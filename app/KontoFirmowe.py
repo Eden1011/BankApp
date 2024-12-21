@@ -9,6 +9,9 @@ class KontoFirmowe(Konto):
         super().__init__()
         self.nazwa_firmy = nazwa_firmy
         self.podatek_eskpresu = 5
+        self.wstep_do_Mail = "Twoja historia przelewow dla konta Firmowego to:"
+
+
         if len(str(NIP)) != 10:
             self.nip = "Niepoprawny NIP!"
         else:
