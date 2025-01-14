@@ -2,8 +2,8 @@ import unittest
 
 from parameterized import parameterized
 
-from ..RejestrKont import RejestrKont
-from ..KontoPrywatne import KontoPrywatne as Konto
+from app.RejestrKont import RejestrKont
+from app.KontoPrywatne import KontoPrywatne as Konto
 
 class TestRejestrKont(unittest.TestCase):
 

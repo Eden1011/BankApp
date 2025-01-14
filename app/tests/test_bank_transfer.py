@@ -3,8 +3,8 @@ import unittest
 from parameterized import parameterized
 from unittest.mock import patch, mock_open
 
-from ..KontoFirmowe import KontoFirmowe
-from ..KontoPrywatne import KontoPrywatne as Konto
+from app.KontoFirmowe import KontoFirmowe
+from app.KontoPrywatne import KontoPrywatne as Konto
 
 
 class TestPrzelewBankAccount(unittest.TestCase):
