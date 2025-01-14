@@ -15,8 +15,8 @@ class TestWysylkiHistoriiNaMail(unittest.TestCase):
 
     def test_wysylki_mail_prywatne(self):
         smtp = SMTPClient()
-        smtp.wyslij = MagicMock(return_value = True)
-        
+        smtp.wyslij = MagicMock(return_value=True)
+
         konto = self.pierwsze_konto
         historia = self.pierwsze_konto.historia_przelewow
         temat = f"Wyciag z dnia {datetime.now().strftime('%Y-%m-%d')}"
@@ -28,12 +28,12 @@ class TestWysylkiHistoriiNaMail(unittest.TestCase):
 
         smtp.wyslij.assert_called_with(temat, zawartosc, self.email)
         self.assertTrue(odpowiedz)
-        
+
     @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF")
     def test_wyslij_firmowa_historie_mail(self, mock):
         mock.return_value = True
         smtp = SMTPClient()
-        smtp.wyslij = MagicMock(return_value = True)
+        smtp.wyslij = MagicMock(return_value=True)
 
         konto = KontoFirmowe("abc", "123")
         konto.historia_przelewow = self.przykladowa_historia
@@ -47,5 +47,12 @@ class TestWysylkiHistoriiNaMail(unittest.TestCase):
         smtp.wyslij.assert_called_with(temat, zawartosc, self.email)
         self.assertTrue(odpowiedz)
 
+    def test_wysylki_mail_smtpclient(self):
+        smtp = SMTPClient()
+        temat = "Testowy temat"
+        zawartosc = "Testowa zawartosc"
+        adres_mail = "test@example.com"
 
+        odpowiedz = smtp.wyslij(temat, zawartosc, adres_mail)
 
+        self.assertFalse(odpowiedz)
