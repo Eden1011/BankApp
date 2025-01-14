@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import mock_open, patch
+import requests
 
 from parameterized import parameterized
 
@@ -45,18 +46,53 @@ class TestCreateBankAccount(unittest.TestCase):
     def test_tworzenie_konta_firmowego_niepoprawny_nip(self, mock_zapytanieDoMF):
         pierwsze_konto = KontoFirmowe("PLACEHOLDER", NIP="5431243")
         self.assertEqual(pierwsze_konto.nip, "Niepoprawny NIP!")
-
+        mock_zapytanieDoMF.assert_not_called()
+    
     @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=True)
     def test_tworzenie_konta_firmowego_poprawny_nip(self, mock_zapytanieDoMF):
         pierwsze_konto = KontoFirmowe("PLACEHOLDER", NIP="8461627561")
         self.assertEqual(pierwsze_konto.nip, "8461627561")
-
+        mock_zapytanieDoMF.assert_called_once_with("8461627561")
+    
     @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=False)
     def test_tworzenie_firmowe_niepoprawny_10_liczoby_nip_error(self, mock_zapytanieDoMF):
         with self.assertRaises(ValueError) as context:
-            pierwsze_konto = KontoFirmowe("PLACEHOLDER", NIP="1111111111")
+            KontoFirmowe("PLACEHOLDER", NIP="1111111111")
         self.assertEqual(str(context.exception), "Firma nie zarejestrowana!")
-
-    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF", return_value=False)
+        mock_zapytanieDoMF.assert_called_once_with("1111111111")
+    
+    @patch("app.KontoFirmowe.KontoFirmowe.zapytanieDoMF")
     def test_zapytanie_DoMF(self, mock_zapytanieDoMF):
-        self.assertEqual(KontoFirmowe.zapytanieDoMF("8461627560"), False)
+        mock_zapytanieDoMF.return_value = False
+        self.assertFalse(KontoFirmowe.zapytanieDoMF("8461627560"))
+        mock_zapytanieDoMF.assert_called_once_with("8461627560")
+
+    @patch('app.KontoFirmowe.requests.get')
+    @patch('app.KontoFirmowe.time.strftime', return_value='2023-06-14')
+    def test_zapytanieDoMF_valid_nip(self, mock_strftime, mock_get):
+        # Przygotowanie mocka
+        mock_response = requests.Response()
+        mock_response.status_code = 200
+        mock_get.return_value = mock_response
+
+        # Wywołanie testowanej funkcji
+        result = KontoFirmowe.zapytanieDoMF("1234567890")
+
+        # Sprawdzenie wyniku
+        self.assertTrue(result)
+        mock_get.assert_called_once_with("https://wl-api.mf.gov.pl/api/search/nip/1234567890?date=2023-06-14")
+
+    @patch('app.KontoFirmowe.requests.get')
+    @patch('app.KontoFirmowe.time.strftime', return_value='2023-06-14')
+    def test_zapytanieDoMF_invalid_nip(self, mock_strftime, mock_get):
+        # Przygotowanie mocka
+        mock_response = requests.Response()
+        mock_response.status_code = 404
+        mock_get.return_value = mock_response
+
+        # Wywołanie testowanej funkcji
+        result = KontoFirmowe.zapytanieDoMF("1234567890")
+
+        # Sprawdzenie wyniku
+        self.assertFalse(result)
+        mock_get.assert_called_once_with("https://wl-api.mf.gov.pl/api/search/nip/1234567890?date=2023-06-14")

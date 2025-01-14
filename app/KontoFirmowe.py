@@ -23,7 +23,6 @@ class KontoFirmowe(Konto):
     @classmethod
     def zapytanieDoMF(cls, NIP):
         odp = requests.get(f"https://wl-api.mf.gov.pl/api/search/nip/{NIP}?date={time.strftime('%Y-%m-%d')}")
-        print(f"Odpowiedz API: {odp.json()}")
         return odp.status_code == 200
 
     def przelew_ekspres(self, wartosc):
