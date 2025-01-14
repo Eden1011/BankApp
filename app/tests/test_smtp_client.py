@@ -2,9 +2,9 @@ from datetime import datetime
 import unittest
 from unittest.mock import MagicMock, patch
 
-from ..SMTPClient import SMTPClient
-from ..KontoPrywatne import KontoPrywatne
-from ..KontoFirmowe import KontoFirmowe
+from app.SMTPClient import SMTPClient
+from app.KontoPrywatne import KontoPrywatne
+from app.KontoFirmowe import KontoFirmowe
 
 class TestWysylkiHistoriiNaMail(unittest.TestCase):
     def setUp(self) -> None:

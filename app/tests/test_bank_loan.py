@@ -3,8 +3,8 @@ from operator import truediv
 from unittest.mock import patch, mock_open
 
 from parameterized import parameterized
-from ..KontoPrywatne import KontoPrywatne as Konto
-from ..KontoFirmowe import KontoFirmowe as KontoFirmowe
+from app.KontoPrywatne import KontoPrywatne as Konto
+from app.KontoFirmowe import KontoFirmowe as KontoFirmowe
 
 
 class TestBankLoan(unittest.TestCase):

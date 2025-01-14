@@ -1,5 +1,4 @@
 import unittest
-from pickle import FALSE
 from unittest.mock import mock_open, patch
 
 from parameterized import parameterized
